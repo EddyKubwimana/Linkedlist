@@ -43,10 +43,26 @@ class llist:
 
     def delete_node(self,node):
         cur_node = self.head
-        while cur_node.next:
-            if cur_node.data == node:
-                cur_node = cur_node.next
-            cur_node = cur_node.next
+        if self.head.data==node:
+            second_part= self.head.next
+            self.head = second_part
+        elif cur_node.next:
+            try:
+                while cur_node.next:
+                    if cur_node.next.data == node:
+                        second_part = cur_node.next.next
+                        cur_node.next = None
+                        cur_node.next = second_part
+                    cur_node = cur_node.next
+            except AttributeError:
+                cur_node = None
+
+                
+               
+
+            
+        else:
+            return None
         
                 
            
@@ -65,7 +81,11 @@ l.insert_node(10,300)
 l.insert_node(10,500)
 l.print_list()
 l.delete_node(500)
+l.delete_node(70)
 print("third new one")
 l.print_list()
+
+print("head")
+print(l.head.data)
 
     
