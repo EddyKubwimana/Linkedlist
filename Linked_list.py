@@ -42,7 +42,12 @@ class llist:
         return "the node doesn't exist"
 
     def delete_node(self,node):
-        pass
+        cur_node = self.head
+        while cur_node.next:
+            if cur_node.data == node:
+                cur_node = cur_node.next
+            cur_node = cur_node.next
+        
                 
            
         
@@ -58,6 +63,9 @@ l.print_list()
 print("new_one")
 l.insert_node(10,300)
 l.insert_node(10,500)
+l.print_list()
+l.delete_node(500)
+print("third new one")
 l.print_list()
 
     
