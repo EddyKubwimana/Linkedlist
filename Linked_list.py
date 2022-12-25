@@ -63,6 +63,18 @@ class llist:
             
         else:
             return None
+
+    def size(self):
+        if self.head == None:
+            print(0)
+        cur_node = self.head
+        length = 0
+        while cur_node:
+            length+=1
+            cur_node = cur_node.next
+        print(length)
+            
+        
         
                 
            
@@ -76,16 +88,17 @@ l.insert(40)
 l.insert(70)
 l.insert_head(80)
 l.print_list()
-print("new_one")
+print()
 l.insert_node(10,300)
 l.insert_node(10,500)
 l.print_list()
 l.delete_node(500)
 l.delete_node(70)
-print("third new one")
+print()
 l.print_list()
 
-print("head")
-print(l.head.data)
+print()
+l.print_list()
+l.size()
 
     
