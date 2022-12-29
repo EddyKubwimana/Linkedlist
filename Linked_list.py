@@ -73,9 +73,25 @@ class llist:
             length+=1
             cur_node = cur_node.next
         print(length)
+
+    def sort(self):
+        if self.head == None:
+            return self.head
+        else:
+            cur_node = self.head
+            x = True
+            while x:
+                while cur_node.next:
+                    x = False
+                    if cur_node.data > cur_node.next.data:
+                        x  = True
+                        temp_var = cur_node.data
+                        cur_node.data = cur_node.next.data
+                        cur_node.next.data = temp_var
+                    cur_node = cur_node.next
             
-        
-        
+                cur_node = self.head
+            self.head = cur_node
                 
            
         
@@ -99,6 +115,12 @@ l.print_list()
 
 print()
 l.print_list()
+print()
 l.size()
+print()
+l.insert(1000)
+l.insert_head(10000)
+l.sort()
+l.print_list()
 
     
