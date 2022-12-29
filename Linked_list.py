@@ -9,6 +9,7 @@ class llist:
         self.head = None
 
     def insert(self,node):
+        ''' this function insert a node at the end of the linked list. it retuns none'''
         new_node = Node(node)
         if self.head is None:
             self.head = new_node
@@ -22,16 +23,19 @@ class llist:
         
 
     def print_list(self):
+        '''this function print the nodes that are in the linked list'''
         cur_node = self.head
         while cur_node:
             print(cur_node.data)
             cur_node = cur_node.next
 
     def insert_head(self,node):
+        ''' this function insert the head of the linked list'''
         new_node = Node(node)
         new_node.next = self.head
         self.head = new_node
     def insert_node(self,after, node):
+        '''this function insert a node after a specified node in the list'''
         cur_node= self.head
         while cur_node.next:
             if cur_node.data == after:
@@ -39,9 +43,10 @@ class llist:
                 new_node.next = cur_node.next
                 cur_node.next = new_node
             cur_node = cur_node.next
-        return "the node doesn't exist"
+        print("the node doesn't exist")
 
     def delete_node(self,node):
+        ''' this function deletes a given node in the linked list'''
         cur_node = self.head
         if self.head.data==node:
             second_part= self.head.next
@@ -91,7 +96,6 @@ class llist:
                     cur_node = cur_node.next
             
                 cur_node = self.head
-            self.head = cur_node
                 
            
         
@@ -107,14 +111,12 @@ l.print_list()
 print()
 l.insert_node(10,300)
 l.insert_node(10,500)
-l.print_list()
 l.delete_node(500)
 l.delete_node(70)
+l.delete_node(10)
 print()
 l.print_list()
 
-print()
-l.print_list()
 print()
 l.size()
 print()
