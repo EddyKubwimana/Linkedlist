@@ -22,12 +22,14 @@ class llist:
 
         
 
-    def print_list(self):
+    def __str__(self):
         '''this function print the nodes that are in the linked list'''
         cur_node = self.head
+        number = []
         while cur_node:
-            print(cur_node.data)
+            number.append(cur_node.data)
             cur_node = cur_node.next
+        return f"{number}"
 
     def insert_head(self,node):
         ''' this function insert the head of the linked list'''
@@ -43,7 +45,6 @@ class llist:
                 new_node.next = cur_node.next
                 cur_node.next = new_node
             cur_node = cur_node.next
-        print("the node doesn't exist")
 
     def delete_node(self,node):
         ''' this function deletes a given node in the linked list'''
@@ -107,15 +108,12 @@ l.insert(20)
 l.insert(40)
 l.insert(70)
 l.insert_head(80)
-l.print_list()
 print()
 l.insert_node(10,300)
 l.insert_node(10,500)
 l.delete_node(500)
 l.delete_node(70)
 l.delete_node(10)
-print()
-l.print_list()
 
 print()
 l.size()
@@ -123,6 +121,6 @@ print()
 l.insert(1000)
 l.insert_head(10000)
 l.sort()
-l.print_list()
+print(l)
 
     
