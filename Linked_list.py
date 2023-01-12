@@ -71,6 +71,8 @@ class llist:
             return None
 
     def size(self):
+        '''This function return the length of the linked list'''
+        
         if self.head == None:
             print(0)
         cur_node = self.head
@@ -81,6 +83,8 @@ class llist:
         print(length)
 
     def sort(self):
+        '''This function return a sorted linked list'''
+
         if self.head == None:
             return self.head
         else:
@@ -97,30 +101,53 @@ class llist:
                     cur_node = cur_node.next
             
                 cur_node = self.head
+
+    def reverse(self):
+        '''This function reverse the linked list'''
+        if self.head is None:
+            raise IndexError("The list is empty")
+        
+        prev = None
+        cur_node = self.head
+        while cur_node is not None:
+            next_nodes = cur_node.next
+            cur_node.next = prev
+            prev = cur_node
+            cur_node = next_nodes
+        self.head = prev
+            
+        
+            
+            
+            
+            
+    
+
+
+ls = llist()
+ls.insert(10)
+ls.insert(20)
+ls.insert(30)
+ls.insert(40)
+ls.insert(100)
+print(ls)
+ls.reverse()
+print(ls)
+
+
+
+
+            
+            
+            
+        
+        
                 
            
         
             
 
-l = llist()
-l.insert(10)
-l.insert(20)
-l.insert(40)
-l.insert(70)
-l.insert_head(80)
-print()
-l.insert_node(10,300)
-l.insert_node(10,500)
-l.delete_node(500)
-l.delete_node(70)
-l.delete_node(10)
 
-print()
-l.size()
-print()
-l.insert(1000)
-l.insert_head(10000)
-l.sort()
-print(l)
+
 
     
