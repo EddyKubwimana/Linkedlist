@@ -1,10 +1,16 @@
 class Node :
+    '''
+    Node object
+    '''
     def __init__(self,data):
         self.data = data
         self.next = None
 
 
 class llist:
+    '''
+    Singly linked list
+    '''
     def __init__(self):
         self.head = None
         self.tail = None
@@ -81,7 +87,7 @@ class llist:
             
         else:
             return None
-
+    @property
     def size(self):
         '''
         This method return the length of the linked list
@@ -135,21 +141,21 @@ class llist:
             cur_node.next = prev
             prev = cur_node
             cur_node = next_nodes
+        self.tail = self.head
         self.head = prev
+
             
         
             
             
-            
-            
-    
-
+#Testing the methods and attributes functionalities
 
 ls = llist()
 ls.append(10)
 ls.append(20)
 ls.append(40)
-ls.sort()
+ls.sort(reverse = True)
+print(ls.size)
 print(ls)
 
 
