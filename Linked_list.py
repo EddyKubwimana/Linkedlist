@@ -7,23 +7,29 @@ class Node :
 class llist:
     def __init__(self):
         self.head = None
+        self.tail = None
 
-    def insert(self,node):
-        ''' this function insert a node at the end of the linked list. it retuns none'''
+    def append(self,node):
+        '''
+         This method insert a node at the end of the linked list.
+         '''
         new_node = Node(node)
         if self.head is None:
             self.head = new_node
+            self.tail = self.head
+            self.head = self.tail
             return
-
-        last_node = self.head
-        while last_node.next:
-            last_node = last_node.next
-        last_node.next = new_node
+        else:
+            self.tail.next = new_node
+            self.tail = self.tail.next
+    
 
         
 
     def __str__(self):
-        '''this function print the nodes that are in the linked list'''
+        '''
+        This method print the nodes that are in the linked list
+        '''
         cur_node = self.head
         number = []
         while cur_node:
@@ -31,13 +37,17 @@ class llist:
             cur_node = cur_node.next
         return f"{number}"
 
-    def insert_head(self,node):
-        ''' this function insert the head of the linked list'''
+    def prepend(self,node):
+        '''
+        this function insert the head of the linked list
+        '''
         new_node = Node(node)
         new_node.next = self.head
         self.head = new_node
     def insert_node(self,after, node):
-        '''this function insert a node after a specified node in the list'''
+        '''
+        This method insert a node after a specified node in the list
+        '''
         cur_node= self.head
         while cur_node.next:
             if cur_node.data == after:
@@ -47,7 +57,9 @@ class llist:
             cur_node = cur_node.next
 
     def delete_node(self,node):
-        ''' this function deletes a given node in the linked list'''
+        '''
+        This method deletes a given node in the linked list
+        '''
         cur_node = self.head
         if self.head.data==node:
             second_part= self.head.next
@@ -71,19 +83,23 @@ class llist:
             return None
 
     def size(self):
-        '''This function return the length of the linked list'''
+        '''
+        This method return the length of the linked list
+        '''
         
         if self.head == None:
-            print(0)
+            return 0
         cur_node = self.head
         length = 0
         while cur_node:
             length+=1
             cur_node = cur_node.next
-        print(length)
+        return length
 
-    def sort(self):
-        '''This function return a sorted linked list'''
+    def sort(self, reverse = None):
+        '''
+        This method return a sorted linked list in ascending order
+        '''
 
         if self.head == None:
             return self.head
@@ -101,9 +117,14 @@ class llist:
                     cur_node = cur_node.next
             
                 cur_node = self.head
-
+            if reverse == True:
+                self.reverse
+                    
+    @property
     def reverse(self):
-        '''This function reverse the linked list'''
+        '''
+        This method reverse the linked list
+        '''
         if self.head is None:
             raise IndexError("The list is empty")
         
@@ -125,13 +146,10 @@ class llist:
 
 
 ls = llist()
-ls.insert(10)
-ls.insert(20)
-ls.insert(30)
-ls.insert(40)
-ls.insert(100)
-print(ls)
-ls.reverse()
+ls.append(10)
+ls.append(20)
+ls.append(40)
+ls.sort()
 print(ls)
 
 
